@@ -2,15 +2,6 @@
 <html lang="en">
 <head> 
 <meta name="google-site-verification" content="08tbaFpinpNog9uXRZJjhzoIzGaa6Rd3G05WHckozkQ" />
-  <link rel="menifest" href="/menifest.json">
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -27,9 +18,16 @@
 
   <link rel="icon" type="image/png" sizes="48x48" href="https://ap-esport-training.vercel.app/icon-512.png">
   <link rel="icon" type="image/png" sizes="192x192" href="https://ap-esport-training.vercel.app/icon-512.png">
-  <link rel="apple-touch-icon" href="https://ap-esport-training.vercel.app/icon-512.png">
+  <link rel="manifest" href="/menifest.json">
 
-  <link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+  <link rel="apple-touch-icon" href="https://ap-esport-training.vercel.app/icon-512.png">
   <meta name="theme-color" content="#8b5cf6">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
