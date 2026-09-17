@@ -1893,6 +1893,23 @@
       renderAdminWithdrawRequests();
       renderAdminCoinsTable();
     }
+    saveDataToStorage();
+      renderAdminWithdrawRequests();
+      renderAdminCoinsTable();
+    }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      setTimeout(() => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+        }
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
