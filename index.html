@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Firebase SDK Scripts (Compat Version) -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBAhgmoa0nV1CR-p_fJusUNDuBt442UMQc",
+    authDomain: "ap-battle-zone.firebaseapp.com",
+    projectId: "ap-battle-zone",
+    storageBucket: "ap-battle-zone.firebasestorage.app",
+    messagingSenderId: "5543564559",
+    appId: "1:55435634559:web:9ea6509bfe214f0484dc4a",
+    measurementId: "G-6FP03BRM0D"
+  };
+
+  // Firebase Initialize
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+
+  // Auth aur Database Instances
+  const auth = firebase.auth();
+  const database = firebase.database();
+</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
