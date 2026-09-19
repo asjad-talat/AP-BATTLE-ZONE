@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ap-battle-zone-v3';
+const CACHE_NAME = 'ap-battle-zone-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -23,8 +23,20 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
+// Network First strategy: Pahle net se fresh file load karega, net nahi hoga tabhi cache se chalega
 self.addEventListener('fetch', (event) => {
+  // Navigation requests (HTML Pages) ke liye always network check karein
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Baaki files ke liye
   event.respondWith(
-    caches.match(event.request).then((res) => res || fetch(event.request))
+    caches.match(event.request).then((res) => {
+      return res || fetch(event.request);
+    })
   );
 });
